@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  // getting products of cart from redux state
   const products = useSelector((state) => state.handleCart);
 
   return (
@@ -14,10 +15,10 @@ const Header = () => {
       <Link to="/add-product" className="item">
         Add Product
       </Link>
-
       <Link to="/cart" className="item">
         <div className="ui label">
           <i aria-hidden="true" className="shop icon"></i> Cart{" "}
+          {/* using length property of array to show how many products are in the cart  */}
           {products.length}
         </div>
       </Link>

@@ -1,6 +1,10 @@
 import fakeStoreApi from "../../apis/fakeStoreApi";
 import { ActionTypes } from "../constants/action-type";
 
+
+//  various actions 
+
+
 export const fetchProducts = () => {
   return async (dispatch) => {
     const response = await fakeStoreApi.get("/products");
@@ -39,7 +43,7 @@ export const selectedProduct = (product) => {
   };
 };
 export const addToCart = (product) => {
-  // console.log(product);
+
   return {
     type: ActionTypes.ADD_TO_CART,
     payload: product,

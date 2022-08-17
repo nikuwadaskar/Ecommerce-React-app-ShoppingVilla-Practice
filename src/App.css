@@ -91,3 +91,7 @@
     font-size: 18px;
     margin-left: 0;
   }
+
+  .justify-content-center{
+    justify-content: center;
+  }

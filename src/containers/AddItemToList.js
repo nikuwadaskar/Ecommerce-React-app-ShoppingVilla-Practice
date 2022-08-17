@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { addProduct } from "../redux/actions/ProductActions";
 
 function CreateProduct() {
+  // using state to set the different properties of item
   const [id, setId] = useState(21);
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
@@ -12,9 +13,11 @@ function CreateProduct() {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
 
+  // using dispatch  method from redux
   const dispatch = useDispatch();
-  //   const { addToast } = useToasts();
+
   const adding = () => {
+    // creating item object using data got from user
     const data = [
       {
         id: id,
@@ -25,8 +28,14 @@ function CreateProduct() {
         category: category,
       },
     ];
+
+    // dispatching data action to reducer
     dispatch(addProduct(data));
+
+    // updating  id to next
     setId(id + 1);
+
+    // showing notification that the product is added
     toast.success("Product Added List Successfully", {
       position: "top-right",
       autoClose: 2000,
@@ -38,71 +47,79 @@ function CreateProduct() {
     });
   };
 
+  // rendering input form
   return (
     <div style={{ height: "70%" }}>
       <form className="justify-content-center" style={{ marginLeft: "25%" }}>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Title</label>
+        <div className="container" style={{ marginTop: "25px" }}>
+          <label htmlFor="inputEmail4">
+            <h3>Title</h3>{" "}
+          </label>
+          <div className="ui focus input" style={{ marginTop: "5px" }}>
             <input
               type="text"
-              className="form-control"
-              id="text"
               placeholder="Title"
-              required
-              //   onChange={handleTitle}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="desc">Description</label>
-            <input
+        </div>
+        <div className="container" style={{ marginTop: "25px" }}>
+          <label htmlFor="inputEmail4">
+            <h3>Description</h3>{" "}
+          </label>
+          <div className="ui focus input" style={{ marginTop: "5px" }}>
+            <textarea
               type="text"
-              className="form-control"
-              id="desc"
               placeholder="Description"
-              required
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <div
-            className="form-group col-md-10"
-            style={{ marginTop: "2%", marginBottom: "2%" }}
-          >
-            <label htmlFor="product-image">Select image for product</label>
+        </div>
+        <div className="container" style={{ marginTop: "25px" }}>
+          <label htmlFor="inputEmail4">
+            <h3>Select image for product</h3>
+          </label>
+          <div className="ui" style={{ marginTop: "5px" }}>
             <input
               type="file"
-              style={{ marginLeft: "16%" }}
-              className="form-control-file"
-              id="product-image"
+              placeholder="Select image for product"
               onChange={(e) => setImage(e.target.value)}
             />
           </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="price">Price</label>
+        </div>
+
+        <div className="container" style={{ marginTop: "25px" }}>
+          <label htmlFor="inputEmail4">
+            <h3>Price</h3>
+          </label>
+          <div className="ui focus input" style={{ marginTop: "5px" }}>
             <input
-              type="text"
-              className="form-control"
-              id="price"
+              type="number"
               placeholder="Price"
-              required
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="rating">Rating</label>
+        </div>
+
+        <div className="container" style={{ marginTop: "25px" }}>
+          <label htmlFor="inputEmail4">
+            <h3>Rating</h3>
+          </label>
+          <div className="ui focus input" style={{ marginTop: "5px" }}>
             <input
-              type="text"
-              className="form-control"
-              id="rating"
+              type="number"
               placeholder="Rating"
-              required
               onChange={(e) => setCategory(e.target.value)}
             />
           </div>
         </div>
+
         <div onClick={adding}>
-          <button type="button" className="btn btn-primary mt-4">
+          <button
+            type="button"
+            style={{ marginTop: "15px" }}
+            className="ui button"
+          >
             Add Product
           </button>
         </div>

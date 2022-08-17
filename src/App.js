@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Cart from "./containers/Cart";
 import AddItemToList from "./containers/AddItemToList";
 
+
+// toaster and the routes paths
 function App() {
   return (
     <Router>

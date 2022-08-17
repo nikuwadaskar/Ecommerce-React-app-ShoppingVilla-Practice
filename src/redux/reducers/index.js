@@ -5,6 +5,9 @@ import {
   handleCartReducer,
   addingReducer,
 } from "./productReducer";
+
+
+// combining all the reducers
 const reducers = combineReducers({
   allProducts: productsReducer,
   product: selectedProductsReducer,

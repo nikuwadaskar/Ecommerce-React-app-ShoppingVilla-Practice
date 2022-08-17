@@ -3,6 +3,8 @@ const initialState = {
   products: [],
 };
 
+// various reducers for various actions
+
 export const productsReducer = (state = initialState, { type, payload }) => {
 
   switch (type) {

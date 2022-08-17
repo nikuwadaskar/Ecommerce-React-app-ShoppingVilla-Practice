@@ -6,19 +6,25 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ProductComponent = () => {
+  // using state to render the updated list
   const [rend, setRenders] = useState([]);
   const [rendAdded, setRendersAdded] = useState([]);
 
+  // getting manually added and api given Products using redux states
   const products = useSelector((state) => state.allProducts.products);
   const productAdded = useSelector((state) => state.adding.array);
   const dispatch = useDispatch();
 
   const functionName = (id) => {
+    // removing the particular id product from list
     const newRenders = rend.filter((object) => {
       return object.id !== id;
     });
+
+    // setting newly updated list
     setRenders(newRenders);
-    console.log("newRenders", newRenders);
+
+    //   showing notification that the product  is deleted
     toast.warn("Deleted From List", {
       position: "top-right",
       autoClose: 5000,
@@ -30,12 +36,15 @@ const ProductComponent = () => {
     });
   };
   const functionNameDelete = (id) => {
-    // console.log(rendAdded);
+    // removing the particular id product from list
     const newRenders = rendAdded.filter((object) => {
       return object.id !== id;
     });
+
+    // setting newly updated list
     setRendersAdded(newRenders);
-    console.log("newRenders", newRenders);
+
+    //   showing notification that the product  is deleted
     toast.warn("Deleted From List", {
       position: "top-right",
       autoClose: 5000,
@@ -48,7 +57,10 @@ const ProductComponent = () => {
   };
 
   const add = (product) => {
+    // dispatching action of add to cart product
     dispatch(addToCart(product));
+
+    // showing notification that the product  is added to cart
     toast.success("Product Added to Cart Successfully", {
       position: "top-right",
       autoClose: 2000,
@@ -61,12 +73,14 @@ const ProductComponent = () => {
   };
 
   useEffect(() => {
+    // launch of all products
     setRenders(products);
     setRendersAdded(productAdded);
-    console.log(rendAdded);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setRenders, products]);
 
+  // mapping the manually added products first
   if (rendAdded) {
     var renderListPayload = rendAdded.map((product) => {
       const { id, title, image, price, category } = product;
@@ -110,6 +124,7 @@ const ProductComponent = () => {
     });
   }
 
+  // mapping the products gotten from the api
   const renderList = rend.map((product) => {
     const { id, title, image, price, category } = product;
     return (
@@ -152,6 +167,7 @@ const ProductComponent = () => {
   });
   return (
     <>
+      {/* rendering list */}
       {renderListPayload}
       {renderList}
     </>
