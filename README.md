@@ -1,3 +1,50 @@
+# E-Commerce App
+
+A simple E-commerce application using React Js and Fake store API, it fetches products from fake store API.
+
+Fake server : https://fakestoreapi.com/products
+
+# Deployment
+
+`<link>`: [IMDb-clone-mini](https://imdb-mini-clone.netlify.app/index.html)
+
+# Features :-
+
+App using the following service to create a dummy E- commerce api service (create good amount of data): https://fakestoreapi.com/products
+
+## Navbar
+
+Show cart items count
+Show relevant navigation links
+
+## All products page
+
+- Show list of products from the API (using the above server) show some sort of Alert/Notification
+- Each product is deletable, on clicking of the delete button you should delete the product and show some sort of Alert/Notification
+- Implement a sort button. On clicking it should sort by “price” and show a cross button just beside it (see the sort view). On clicking the cross button remove the sort. Give button to add a product to cart
+
+## Create Page
+
+- On clicking of the Add button add the product in the DB, and show some sort of Alert/Notification
+
+## Product Detail Page
+
+- Show all the details of a product
+Give button to add a product to cart or remove from cart id already in cart
+
+## Cart Page
+
+- Show all the items in the cart
+- You can remove from cart
+
+
+# Screenshots
+
+![HomePage](/src/containers/one.jpg)
+![HomePage](/src/containers/two.jpg)
+![HomePage](/src/containers/three.jpg)
+![HomePage](/src/containers/four.jpg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
