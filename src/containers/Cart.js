@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { removeFromCart } from "../redux/actions/ProductActions";
@@ -30,23 +30,26 @@ export default function Cart() {
   const renderList = products.map((product) => {
     const { id, title, image, price, category } = product;
     return (
-      <div className="four wide column" key={id}>
-        <div className="ui link cards">
-          <div className="card">
-            <div className="image">
-              <img src={image} alt={id} />
+      <div className="ui items">
+        <div className="item">
+          <div className="ui small image">
+            <img src={image} alt={id} />
+          </div>
+          <div className="middle aligned content">
+            <div className="header">{title}</div>
+
+            <div className="meta description">
+              <span className="price">$ {price}</span>
+              <br />
+              <span className="stay">{category}</span>
             </div>
-            <div className="content">
-              <Link to={`/product/${id}`}>
-                <div className="header">{title}</div>
-              </Link>
-              <div className="meta price">$ {price}</div>
-              <div className="meta">{category}</div>
+
+            <div className="extra">
               <div
                 onClick={() => {
                   remove(product);
                 }}
-                className="ui vertical animated button"
+                className="ui vertical animated button ui right floated button"
                 tabIndex="0"
               >
                 <div className="hidden content">
@@ -57,8 +60,15 @@ export default function Cart() {
             </div>
           </div>
         </div>
+        <hr />
       </div>
     );
   });
-  return <>{renderList}</>;
+  return (
+    <>
+      <div className="ui container" style={{ margin: 90 }}>
+        {renderList}
+      </div>
+    </>
+  );
 }

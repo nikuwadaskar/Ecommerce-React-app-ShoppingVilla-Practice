@@ -16,11 +16,14 @@ const Header = () => {
         Add Product
       </Link>
       <Link to="/cart" className="item">
-        <div className="ui label">
+        <div className="ui ">
           <i aria-hidden="true" className="shop icon"></i> Cart{" "}
           {/* using length property of array to show how many products are in the cart  */}
           {products.length}
         </div>
+      </Link>
+      <Link to="/aboute-project-and-me" className="item">
+        About
       </Link>
     </div>
   );

@@ -13,6 +13,7 @@ const ProductComponent = () => {
   // getting manually added and api given Products using redux states
   const products = useSelector((state) => state.allProducts.products);
   const productAdded = useSelector((state) => state.adding.array);
+
   const dispatch = useDispatch();
 
   const functionName = (id) => {
@@ -47,7 +48,7 @@ const ProductComponent = () => {
     //   showing notification that the product  is deleted
     toast.warn("Deleted From List", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -111,12 +112,17 @@ const ProductComponent = () => {
                 </div>
                 <div className="visible content">Add to Cart</div>
               </div>
-              <h2 className="ui header" onClick={() => functionNameDelete(id)}>
-                <i className="large icons">
-                  <i aria-hidden="true" className="delete icon"></i>
-                </i>
-                Delete
-              </h2>
+              <div
+                onClick={() => functionNameDelete(id)}
+                className="ui vertical animated button ui right floated button"
+                tabIndex="0"
+                style={{ backgroundColor: "#eb9898" }}
+              >
+                <div className="hidden content">
+                  <i className="remove icon"></i>
+                </div>
+                <div className="visible content">Delete Product</div>
+              </div>
             </div>
           </div>
         </div>
@@ -141,7 +147,6 @@ const ProductComponent = () => {
                 <div className="meta">{category}</div>
               </div>
             </Link>
-
             <div
               onClick={() => {
                 add(product);
@@ -154,12 +159,17 @@ const ProductComponent = () => {
               </div>
               <div className="visible content">Add to Cart</div>
             </div>
-            <h2 className="ui header" onClick={() => functionName(id)}>
-              <i className="large icons">
-                <i aria-hidden="true" className="delete icon"></i>
-              </i>
-              Delete
-            </h2>
+            <div
+              onClick={() => functionName(id)}
+              className="ui vertical animated button ui right floated button"
+              tabIndex="0"
+              style={{ backgroundColor: "#eb9898" }}
+            >
+              <div className="hidden content">
+                <i className="remove icon"></i>
+              </div>
+              <div className="visible content">Delete Product</div>
+            </div>
           </div>
         </div>
       </div>
