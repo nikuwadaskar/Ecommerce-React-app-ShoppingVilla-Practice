@@ -6,7 +6,7 @@ Fake server : https://fakestoreapi.com/products
 
 # Deployment
 
-`<link>`: [IMDb-clone-mini](https://imdb-mini-clone.netlify.app/index.html)
+`<link>`: [Shopping Villa](https://shopping-villa.netlify.app/)
 
 # Features :-
 
