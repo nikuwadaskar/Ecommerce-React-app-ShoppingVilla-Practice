@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Accordion, Icon } from "semantic-ui-react";
 
 export default class AboutPage extends Component {
@@ -29,21 +28,23 @@ export default class AboutPage extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
             <p>
-              This is the react.js base project . In this project, I have built
+              This is the react.js-based project . In this project, I have built
               a basic website. This is an e-commerce site, so it has some
               features like adding to cart, removing from cart, and also a
               feature that allows you to delete products from the home page
               (that feature does not make any sense, but we still have it).
               There is also an "add product" page from where you can upload your
-              product (this also doesn't make sense). When you add the product
-              to the cart, you will also be able to see the improvement in the
-              header cart button. It will show you how many products are in the
-              cart currently. You can add a product only once to your cart at a
-              time (we have limited stock 😂😂), so this is all about the
-              projec. 
+              product (this also doesn't make sense). When you add a product to
+              the cart, you will notice an improvement in the header cart
+              button. It will show you how many products are in the cart
+              currently. And the total amount of the cart , We have created a
+              checkout page that has an input box for billing and that will also
+              show you how much the total has been and the products that you
+              have selected with their prices for purchase. You can add a
+              product only once to your cart at a time (we have limited stock
+              😂😂), so this is all about the project. 
             </p>
           </Accordion.Content>
-
           <Accordion.Title
             active={activeIndex === 1}
             index={1}
@@ -60,7 +61,11 @@ export default class AboutPage extends Component {
               experience to learn from such a great team. I have also done my
               DSA training from Coding Ninjas. I have also developed some
               projects that you can have a look into.{" "}
-              <a href="https://github.com/nikuwadaskar" target={"_blank"}>
+              <a
+                href="https://github.com/nikuwadaskar"
+                target={"_blank"}
+                rel="noreferrer"
+              >
                 This is my github repository link.
               </a>{" "}
               You can have a look I have worked on over thirteen different
@@ -70,6 +75,7 @@ export default class AboutPage extends Component {
               <a
                 href="https://www.linkedin.com/in/niketan-wadaskar-3188321a0/"
                 target={"_blank"}
+                rel="noreferrer"
               >
                 LinkedIn; just click here
               </a>{" "}
@@ -77,7 +83,6 @@ export default class AboutPage extends Component {
               later. 
             </p>
           </Accordion.Content>
-
           <Accordion.Title
             active={activeIndex === 2}
             index={2}
@@ -98,6 +103,7 @@ export default class AboutPage extends Component {
               <a
                 href="https://github.com/nikuwadaskar/Ecommerce-React-app-ShoppingVilla-Practice"
                 target={"_blank"}
+                rel="noreferrer"
               >
                 {" "}
                 You can have a look at the codes, just click here.

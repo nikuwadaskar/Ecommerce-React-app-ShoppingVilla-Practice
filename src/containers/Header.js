@@ -22,6 +22,9 @@ const Header = () => {
           {products.length}
         </div>
       </Link>
+      <Link to="/check-out" className="item">
+        Cheack Out
+      </Link>
       <Link to="/aboute-project-and-me" className="item">
         About
       </Link>

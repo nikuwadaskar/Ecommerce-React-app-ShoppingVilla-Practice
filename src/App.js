@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Cart from "./containers/Cart";
 import AddItemToList from "./containers/AddItemToList";
 import AboutPage from "./containers/AboutPage";
+import CheckOutPage from "./containers/CheckOutPage";
 
 // toaster and the routes paths
 function App() {
@@ -19,8 +20,10 @@ function App() {
         <Route exact path="/" element={<ProductListing />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/add-product" element={<AddItemToList />} />
-        <Route exact path="//aboute-project-and-me" element={<AboutPage />} />
         <Route exact path="/product/:productId" element={<ProductDetails />} />
+        <Route exact path="/aboute-project-and-me" element={<AboutPage />} />
+        <Route exact path="/check-out" element={<CheckOutPage />} />
+
         <Route>404 Not Found</Route>
       </Routes>
     </Router>

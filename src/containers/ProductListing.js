@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, sortProducts } from "../redux/actions/ProductActions";
+import { fetchProducts } from "../redux/actions/ProductActions";
 import ProductComponent from "./ProductComponent";
 
 const ProductPage = () => {
@@ -17,8 +17,10 @@ const ProductPage = () => {
   }
 
   function Sort() {
-    // sending API request to get sorted product
-    dispatch(sortProducts());
+    // sorting product
+    products.sort((a, b) => {
+      return a.price - b.price;
+    });
     setSorted(true);
   }
   useEffect(() => {
@@ -33,11 +35,11 @@ const ProductPage = () => {
         {/* checking sort condition to show relevant button  */}
         {!sorted ? (
           <button onClick={() => Sort()} className="ui button">
-            Sort Desc
+            Sort By Price
           </button>
         ) : (
           <button onClick={() => unSort()} className="ui button">
-            Sort Asc
+            Sort Random
           </button>
         )}
       </div>

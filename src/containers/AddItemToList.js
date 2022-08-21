@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addProduct } from "../redux/actions/ProductActions";
@@ -116,12 +117,13 @@ function CreateProduct() {
             />
           </div>
         </div>
-
-        <div onClick={adding} style={btn}>
-          <button type="button" className="ui button">
-            Add Product
-          </button>
-        </div>
+        <Link to="/">
+          <div onClick={adding} style={btn}>
+            <button type="button" className="ui button">
+              Add Product
+            </button>
+          </div>{" "}
+        </Link>
       </form>
     </div>
   );
