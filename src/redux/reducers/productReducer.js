@@ -6,7 +6,6 @@ const initialState = {
 // various reducers for various actions
 
 export const productsReducer = (state = initialState, { type, payload }) => {
-
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
       return { ...state, products: payload };
@@ -80,6 +79,28 @@ export const handleCartReducer = (state = cart, action) => {
         );
       }
 
+    default:
+      return state;
+  }
+};
+
+const initialCount = Array(20).fill(2);
+
+export const manageCountReducer = (state = initialCount, action) => {
+  // console.log(action.payload, "getting id ");
+  switch (action.type) {
+    case ActionTypes.COUNT_DOWN:
+      var current = state[action.payload];
+      state.splice(action.payload, 1);
+      state.splice(action.payload, 0, --current);
+
+      return state;
+    case ActionTypes.COUNT_UP:
+      var current = state[action.payload];
+      state.splice(action.payload, 1);
+      state.splice(action.payload, 0, ++current);
+
+      return state;
     default:
       return state;
   }

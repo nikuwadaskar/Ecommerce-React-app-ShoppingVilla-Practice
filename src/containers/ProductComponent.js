@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/actions/ProductActions";
+import { addToCart, countDown } from "../redux/actions/ProductActions";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,10 +9,12 @@ const ProductComponent = () => {
   // using state to render the updated list
   const [rend, setRenders] = useState([]);
   const [rendAdded, setRendersAdded] = useState([]);
+  const [counter, setCount] = useState(2);
 
   // getting manually added and api given Products using redux states
   const products = useSelector((state) => state.allProducts.products);
   const productAdded = useSelector((state) => state.adding.array);
+  const count = useSelector((state) => state.manageCount);
 
   const dispatch = useDispatch();
 
@@ -58,19 +60,32 @@ const ProductComponent = () => {
   };
 
   const add = (product) => {
-    // dispatching action of add to cart product
-    dispatch(addToCart(product));
-
-    // showing notification that the product  is added to cart
-    toast.success("Product Added to Cart Successfully", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    if (count[product.id - 1] <= 0) {
+      toast.warn("Product Out Of Stock", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      // dispatching action of add to cart product
+      dispatch(countDown(product.id - 1));
+      dispatch(addToCart(product));
+      // showing notification that the product  is added to cart
+      toast.success("Product Added to Cart Successfully", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setCount(count[product.id - 1]);
+    }
   };
 
   useEffect(() => {
@@ -89,6 +104,12 @@ const ProductComponent = () => {
         <div className="four wide column" key={id}>
           <div className="ui link cards">
             <div className="card">
+              <div className="tag" style={styles}>
+                <span className="badge rounded-pill bg-danger">
+                  {" "}
+                  {count[id - 1]}
+                </span>
+              </div>
               <div className="image">
                 <img src={image} alt={title} />
               </div>
@@ -137,6 +158,11 @@ const ProductComponent = () => {
       <div className="four wide column" key={id}>
         <div className="ui link cards">
           <div className="card">
+            <div className="tag" style={styles}>
+              <span className="badge rounded-pill bg-danger">
+                ONLY {count[id - 1]} Left
+              </span>
+            </div>
             <div className="image">
               <img src={image} alt={title} />
             </div>
@@ -177,7 +203,6 @@ const ProductComponent = () => {
   });
   return (
     <>
-      {/* rendering list */}
       {renderListPayload}
       {renderList}
     </>
@@ -185,3 +210,9 @@ const ProductComponent = () => {
 };
 
 export default ProductComponent;
+const styles = {
+  display: "flex",
+  justifyContent: "flex-end",
+  position: "absolute",
+  zIndex: 1,
+};

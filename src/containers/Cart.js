@@ -1,18 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import meme from "../containers/shoppMEME.jpg";
 // import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { removeFromCart } from "../redux/actions/ProductActions";
+import {
+  addToCart,
+  coundUp,
+  countDown,
+  countUp,
+  removeFromCart,
+} from "../redux/actions/ProductActions";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
   // getting cart product from redux state
   const products = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
-
+  const counter = useSelector((state) => state.manageCount);
+  // const [counter,setCounter]=useState(2)
   const remove = (product) => {
+
+  
     // giving notification that product is removed from cart
     toast.warn("Removed From Cart", {
       position: "top-right",
@@ -23,14 +32,45 @@ export default function Cart() {
       draggable: true,
       progress: undefined,
     });
-
+    dispatch(countUp(product.id - 1));
     // dispatching the remove action
     dispatch(removeFromCart(product));
   };
+
+  const add = (product) => {
+    console.log(counter[product.id]);
+    if (counter[product.id - 1] <= 0) {
+      toast.warn("Product Out Of Stock", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      // dispatching action of add to cart product
+      dispatch(countDown(product.id - 1));
+      dispatch(addToCart(product));
+      // showing notification that the product  is added to cart
+      toast.success("Product Added to Cart Successfully", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
   // calculating sum for checkout
   const sum = () => {
     const sum1 = products.reduce((accumulator, object) => {
-      return accumulator + object.price;
+      // console.log(object);
+      return accumulator + object.price * object.qty;
     }, 0);
     return sum1;
   };
@@ -38,7 +78,7 @@ export default function Cart() {
 
   // rendering the products got from the redux state using map function
   const renderList = products.map((product) => {
-    const { id, title, image, price, category } = product;
+    const { id, title, image, price, category, qty } = product;
     return (
       <div className="ui items" key={id}>
         <div className="item">
@@ -52,9 +92,29 @@ export default function Cart() {
               <span className="price">$ {price}</span>
               <br />
               <span className="stay">{category}</span>
+              <div>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    add(product);
+                  }}
+                >
+                  +
+                </button>
+                <span className="qty">{qty}</span>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    remove(product);
+                  }}
+                >
+                  -
+                </button>
+              </div>
             </div>
 
             <div className="extra">
+              {/* {(!qty>0)?('heyluu'):('belli')} */}
               <div
                 onClick={() => {
                   remove(product);
@@ -75,7 +135,7 @@ export default function Cart() {
     );
   });
 
-  if (products.length == 0) {
+  if (products.length === 0) {
     return (
       <div>
         <img src={meme} className="ui centered medium image" alt="MEME" />

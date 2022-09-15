@@ -57,3 +57,16 @@ export const removeSelectedProduct = () => {
     type: ActionTypes.REMOVE_SELECTED_PRODUCT,
   };
 };
+
+export const countDown = (id) => {
+  return {
+    type: ActionTypes.COUNT_DOWN,
+    payload: id,
+  };
+};
+export const countUp = (id) => {
+  return {
+    type: ActionTypes.COUNT_UP,
+    payload: id,
+  };
+};

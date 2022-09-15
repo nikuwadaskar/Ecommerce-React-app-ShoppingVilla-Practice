@@ -6,25 +6,22 @@ import meme from "../containers/ThankYou.jpg";
 export default function CheckOutPage() {
   const [submitt, setSubmitt] = useState(false);
   const products = useSelector((state) => state.handleCart);
-
   const sum = () => {
     const sum1 = products.reduce((accumulator, object) => {
-      return accumulator + object.price;
+      return accumulator + object.price * object.qty;
     }, 0);
     return sum1;
   };
   var total = sum();
   const submited = () => {
-    console.log(submitt);
     setSubmitt(true);
-    console.log(submitt);
   };
   // useEffect(() => {
 
   // }, [submitt,setSubmitt]);
 
   const renderList = products.map((product) => {
-    const { id, title, image, price, category } = product;
+    const { id, title, image, price, category, qty } = product;
     return (
       <div className="ui relaxed items" key={id}>
         <div className="item">
@@ -38,7 +35,9 @@ export default function CheckOutPage() {
             </Link>
           </div>
 
-          <div className="ui header">{price} $</div>
+          <div className="ui header">
+            {price} $ * {qty}
+          </div>
         </div>
       </div>
     );
@@ -96,7 +95,9 @@ export default function CheckOutPage() {
           {renderList}
 
           <div className="ui  right floated  button" tabIndex="0" style={btn}>
-            <div className="visible content">{total} Dollars Only</div>
+            <div className="visible content">
+              Total {"  "}:{"  "}{total} Dollars Only
+            </div>
             {/* <div className="hidden content">Proceed to check out</div> */}
           </div>
           <div
