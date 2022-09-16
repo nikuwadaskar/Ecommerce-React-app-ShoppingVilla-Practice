@@ -40,9 +40,17 @@ export default class AboutPage extends Component {
               currently. And the total amount of the cart , We have created a
               checkout page that has an input box for billing and that will also
               show you how much the total has been and the products that you
-              have selected with their prices for purchase. You can add a
-              product only once to your cart at a time (we have limited stock
-              😂😂), so this is all about the project. 
+              have selected with their prices for purchase.Every product has two
+              quantity in stock available, which you can order. If you try to
+              add more than two quantity in the cart, it will give an
+              Notification("product out of stock"), and in the cart there is a
+              plus and minus button available which will add the product and
+              subtract the product. If you go below zero, the product will be
+              removed from the cart directly. The total price will be calculated
+              according to the quantity available in the cart. On the check out
+              page, you can see how many products there are and how much each
+              product costs, as well as the total price. so this is all about
+              the project.
             </p>
           </Accordion.Content>
           <Accordion.Title
