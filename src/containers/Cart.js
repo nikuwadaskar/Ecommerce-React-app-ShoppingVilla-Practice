@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import meme from "../containers/shoppMEME.jpg";
-// import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   addToCart,
-  coundUp,
   countDown,
   countUp,
   removeFromCart,

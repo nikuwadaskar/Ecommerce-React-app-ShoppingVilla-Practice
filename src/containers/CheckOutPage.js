@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import meme from "../containers/ThankYou.jpg";
@@ -16,17 +16,15 @@ export default function CheckOutPage() {
   const submited = () => {
     setSubmitt(true);
   };
-  // useEffect(() => {
 
-  // }, [submitt,setSubmitt]);
 
   const renderList = products.map((product) => {
-    const { id, title, image, price, category, qty } = product;
+    const { id, title, image, price, qty } = product;
     return (
       <div className="ui relaxed items" key={id}>
         <div className="item">
           <div className="ui tiny image">
-            <img src={image} />
+            <img src={image} alt="item"/>
           </div>
 
           <div className="middle aligned content">
