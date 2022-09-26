@@ -9,12 +9,17 @@ import Cart from "./containers/Cart";
 import AddItemToList from "./containers/AddItemToList";
 import AboutPage from "./containers/AboutPage";
 import CheckOutPage from "./containers/CheckOutPage";
+import Navbarr from "./containers/Navbar";
 
 // toaster and the routes paths
 function App() {
   return (
+    <div className="bg" >
+
+   
     <Router>
-      <Header />
+    <Navbarr/>
+      {/* <Header  /> */}
       <ToastContainer />
       <Routes>
         <Route exact path="/" element={<ProductListing />} />
@@ -27,6 +32,7 @@ function App() {
         <Route>404 Not Found</Route>
       </Routes>
     </Router>
+    </div>
   );
 }
 

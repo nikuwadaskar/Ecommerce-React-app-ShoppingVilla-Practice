@@ -21,7 +21,7 @@ export default function CheckOutPage() {
   const renderList = products.map((product) => {
     const { id, title, image, price, qty } = product;
     return (
-      <div className="ui relaxed items" key={id}>
+      <div className="ui bg-faint relaxed items" key={id}>
         <div className="item">
           <div className="ui tiny image">
             <img src={image} alt="item"/>
@@ -50,9 +50,9 @@ export default function CheckOutPage() {
     return (
       <div className="ui container" style={ctn}>
         <form className="ui form">
-          <h4 className="ui dividing header">Shipping Information</h4>
-          <div className="field">
-            <label>Name</label>
+          <h2 className="ui dividing header text-white">Shipping Information</h2>
+          <div className="field ">
+            <label className="text-white">Name</label>
             <div className="two fields">
               <div className="field">
                 <input
@@ -70,8 +70,8 @@ export default function CheckOutPage() {
               </div>
             </div>
           </div>
-          <div className="field">
-            <label>Billing Address</label>
+          <div className="field ">
+            <label className="text-white">Billing Address</label>
             <div className="fields">
               <div className="twelve wide field">
                 <input
@@ -89,7 +89,7 @@ export default function CheckOutPage() {
               </div>
             </div>
           </div>
-          <h4 className="ui dividing header">Order Summary</h4>
+          <h4 className="ui dividing header text-white">Order Summary</h4>
           {renderList}
 
           <div className="ui  right floated  button" tabIndex="0" style={btn}>
@@ -117,4 +117,5 @@ const btn = {
   backgroundColor: "white",
 };
 
-const ctn = { paddingBottom: "90px" };
+const ctn = { paddingBottom: "90px" ,
+padding:"20px"};

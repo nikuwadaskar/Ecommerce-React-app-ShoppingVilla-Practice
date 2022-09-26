@@ -96,9 +96,9 @@ export const manageCountReducer = (state = initialCount, action) => {
 
       return state;
     case ActionTypes.COUNT_UP:
-      var current = state[action.payload];
+      var currentTwo = state[action.payload];
       state.splice(action.payload, 1);
-      state.splice(action.payload, 0, ++current);
+      state.splice(action.payload, 0, ++currentTwo);
 
       return state;
     default:

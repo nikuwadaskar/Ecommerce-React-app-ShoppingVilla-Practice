@@ -78,7 +78,7 @@ export default function Cart() {
   const renderList = products.map((product) => {
     const { id, title, image, price, category, qty } = product;
     return (
-      <div className="ui items" key={id}>
+      <div className="ui items bg-faint" key={id}>
         <div className="item">
           <div className="ui small image">
             <img src={image} alt={id} />
@@ -148,7 +148,7 @@ export default function Cart() {
             tabIndex="0"
             style={btn}
           >
-            <div className="visible content">{total} Dollars Only</div>
+            <div className="visible content" style={{marginBottom:'4%'}}>{total} Dollars Only</div>
             <div className="hidden content">Proceed to check out</div>
           </div>
         </Link>
@@ -161,5 +161,5 @@ export default function Cart() {
 }
 
 const btn = {
-  margin: "-34px 124px 25px 20px",
+  margin: "-57px 124px 25px 20px",
 };

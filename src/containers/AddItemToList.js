@@ -50,81 +50,81 @@ function CreateProduct() {
 
   // rendering input form
   return (
-    <div style={{ height: "70%" }}>
-      <form className="justify-content-center" style={{ marginLeft: "25%" }}>
-        <div className="container" style={titl}>
-          <label htmlFor="inputEmail4">
-            <h3>Title</h3>{" "}
-          </label>
-          <div className="ui focus input" style={{ marginTop: "5px" }}>
-            <input
-              type="text"
-              placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
+    <div className="divStyle">
+      {/* <form className=""> */}
+      <div className="container" style={titl}>
+        <label htmlFor="inputEmail4">
+          <h3>Title</h3>{" "}
+        </label>
+        <div className="ui focus input" style={{ marginTop: "5px" }}>
+          <input
+            type="text"
+            placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
-        <div className="container" style={desc}>
-          <label htmlFor="inputEmail4">
-            <h3>Description</h3>
-          </label>
-          <div className="ui focus input">
-            <textarea
-              type="text"
-              placeholder="Description"
-              rows="4"
-              cols="69"
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
+      </div>
+      <div className="container" style={desc}>
+        <label htmlFor="inputEmail4">
+          <h3>Description</h3>
+        </label>
+        <div className="ui focus input">
+          <textarea
+            type="text"
+            placeholder="Description"
+            rows="4"
+            cols="69"
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </div>
+      </div>
 
-        <div className="container" style={prie}>
-          <label htmlFor="inputEmail4">
-            <h3>Price</h3>
-          </label>
-          <div className="ui focus input">
-            <input
-              type="number"
-              placeholder="Price"
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
+      <div className="container" style={prie}>
+        <label htmlFor="inputEmail4">
+          <h3>Price</h3>
+        </label>
+        <div className="ui focus input">
+          <input
+            type="number"
+            placeholder="Price"
+            onChange={(e) => setPrice(e.target.value)}
+          />
         </div>
+      </div>
 
-        <div className="container" style={rating}>
-          <label htmlFor="inputEmail4">
-            <h3>Rating</h3>
-          </label>
-          <div className="ui focus input" style={{ marginTop: "5px" }}>
-            <input
-              type="number"
-              placeholder="Rating"
-              onChange={(e) => setCategory(e.target.value)}
-            />
-          </div>
+      <div className="container" style={rating}>
+        <label htmlFor="inputEmail4">
+          <h3>Rating</h3>
+        </label>
+        <div className="ui focus input" style={{ marginTop: "5px" }}>
+          <input
+            type="number"
+            placeholder="Rating"
+            onChange={(e) => setCategory(e.target.value)}
+          />
         </div>
+      </div>
 
-        <div className="container" style={img}>
-          <label htmlFor="inputEmail4">
-            <h3>Select image for product</h3>
-          </label>
-          <div className="ui">
-            <input
-              type="file"
-              placeholder="Select image for product"
-              onChange={(e) => setImage(e.target.value)}
-            />
-          </div>
+      <div className="container" style={img}>
+        <label htmlFor="inputEmail4">
+          <h3>Select image for product</h3>
+        </label>
+        <div className="ui">
+          <input
+            type="file"
+            placeholder="Select image for product"
+            onChange={(e) => setImage(e.target.value)}
+          />
         </div>
-        <Link to="/">
-          <div onClick={adding} style={btn}>
-            <button type="button" className="ui button">
-              Add Product
-            </button>
-          </div>{" "}
-        </Link>
-      </form>
+      </div>
+      <Link to="/">
+        <div onClick={adding} style={btn}>
+          <button type="button" className="ui button">
+            Add Product
+          </button>
+        </div>{" "}
+      </Link>
+      {/* </form> */}
     </div>
   );
 }
@@ -134,32 +134,28 @@ export default CreateProduct;
 const desc = {
   marginTop: "35px",
   display: "flex",
-  width: "500px",
   flexDirection: "column",
+  resize:"false"
 };
 
 const titl = {
   marginTop: "35px",
   display: "flex",
-  width: "500px",
   flexDirection: "column",
 };
 const prie = {
   marginTop: "35px",
   display: "flex",
-  width: "500px",
   flexDirection: "column",
 };
 const rating = {
   marginTop: "35px",
   display: "flex",
-  width: "500px",
   flexDirection: "column",
 };
 const btn = {
   marginTop: "35px",
   display: "flex",
-  width: "500px",
   flexDirection: "column",
   color: "green",
 };
@@ -169,8 +165,5 @@ const img = {
   display: "flex",
   justifyContent: "space-between",
   gap: "52px",
-  width: "500px",
   textAlign: "center",
-
-  // flexDirection: "column",
 };

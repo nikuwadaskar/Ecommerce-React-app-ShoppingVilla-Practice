@@ -48,7 +48,7 @@ const ProductPage = () => {
       {Object.keys(products).length === 0 ? (
         <div className="ui active centered inline loader"></div>
       ) : (
-        <div className="ui grid container">
+        <div className="ui grid container" style={{justifyContent:'space-around'}}>
           <ProductComponent />
         </div>
       )}
