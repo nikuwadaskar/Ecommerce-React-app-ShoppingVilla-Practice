@@ -94,9 +94,8 @@ export default function CheckOutPage() {
 
           <div className="ui  right floated  button" tabIndex="0" style={btn}>
             <div className="visible content">
-              Total {"  "}:{"  "}{total} Dollars Only
+              Total {"  "}:{"  "}{total.toFixed(3)} Dollars Only
             </div>
-            {/* <div className="hidden content">Proceed to check out</div> */}
           </div>
           <div
             onClick={() => {

@@ -84,7 +84,7 @@ const ProductComponent = () => {
         draggable: true,
         progress: undefined,
       });
-      
+
       setCount(count[product.id - 1]);
     }
   };
@@ -100,9 +100,14 @@ const ProductComponent = () => {
   if (rendAdded) {
     var renderListPayload = rendAdded.map((product) => {
       const { id, title, image, price, category } = product;
-      const trimmedTitle =  title.substr(0, 60)+"..."
+      var trimmedTitle = "";
+      if (title.length < 60) {
+        trimmedTitle = title;
+      } else {
+        trimmedTitle = title.substr(0, 60) + "...";
+      }
       return (
-        <div className=" column" key={id+counter} title={title}>
+        <div className=" column" key={id + counter} title={title}>
           <div className="ui link cards">
             <div className="card">
               <div className="tag" style={styles}>
@@ -154,9 +159,19 @@ const ProductComponent = () => {
   // mapping the products gotten from the api
   const renderList = rend.map((product) => {
     const { id, title, image, price, category } = product;
-    const trimmedTitle =  title.substr(0, 60)+"..."
+    var trimmedTitle=''
+    if (title.length < 60) {
+      trimmedTitle = title;
+    } else {
+      trimmedTitle = title.substr(0, 60) + "...";
+    }
     return (
-      <div className=" column" key={id} style={{width:'250px'}} title={title}>
+      <div
+        className=" column"
+        key={id}
+        style={{ width: "250px" }}
+        title={title}
+      >
         <div className="ui link cards">
           <div className="card">
             <div className="tag" style={styles}>

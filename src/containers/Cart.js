@@ -18,8 +18,6 @@ export default function Cart() {
   const counter = useSelector((state) => state.manageCount);
   // const [counter,setCounter]=useState(2)
   const remove = (product) => {
-
-  
     // giving notification that product is removed from cart
     toast.warn("Removed From Cart", {
       position: "top-right",
@@ -87,7 +85,10 @@ export default function Cart() {
             <div className="header">{title}</div>
 
             <div className="meta description">
-              <span className="price">$ {price}</span>
+              <span className="price">
+                {" "}
+                <strong>$ {price}</strong>{" "}
+              </span>
               <br />
               <span className="stay">{category}</span>
               <div>
@@ -148,7 +149,9 @@ export default function Cart() {
             tabIndex="0"
             style={btn}
           >
-            <div className="visible content" style={{marginBottom:'4%'}}>{total} Dollars Only</div>
+            <div className="visible content" style={{ marginBottom: "4%" }}>
+              {total.toFixed(3)} Dollars Only
+            </div>
             <div className="hidden content">Proceed to check out</div>
           </div>
         </Link>

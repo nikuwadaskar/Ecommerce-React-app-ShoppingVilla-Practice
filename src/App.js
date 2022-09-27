@@ -1,5 +1,4 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Header from "./containers/Header";
 import ProductDetails from "./containers/ProductDetails";
 import ProductListing from "./containers/ProductListing";
 import "./App.css";
@@ -19,7 +18,6 @@ function App() {
    
     <Router>
     <Navbarr/>
-      {/* <Header  /> */}
       <ToastContainer />
       <Routes>
         <Route exact path="/" element={<ProductListing />} />
