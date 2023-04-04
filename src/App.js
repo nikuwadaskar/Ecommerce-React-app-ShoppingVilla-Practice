@@ -9,6 +9,7 @@ import AddItemToList from "./containers/AddItemToList";
 import AboutPage from "./containers/AboutPage";
 import CheckOutPage from "./containers/CheckOutPage";
 import Navbarr from "./containers/Navbar";
+import LogIn from "./containers/LogIn";
 
 // toaster and the routes paths
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <Navbarr/>
       <ToastContainer />
       <Routes>
-        <Route exact path="/" element={<ProductListing />} />
+        <Route exact path="/" element={<LogIn />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/add-product" element={<AddItemToList />} />
         <Route exact path="/product/:productId" element={<ProductDetails />} />
