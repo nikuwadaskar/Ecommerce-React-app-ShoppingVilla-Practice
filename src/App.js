@@ -10,9 +10,17 @@ import AboutPage from "./containers/AboutPage";
 import CheckOutPage from "./containers/CheckOutPage";
 import Navbarr from "./containers/Navbar";
 import LogIn from "./containers/LogIn";
+import { useState } from "react";
 
 // toaster and the routes paths
 function App() {
+  const [auth,setAuth] =useState(false)
+  if (!auth){
+    return (<>
+    <LogIn/>
+    </>)
+  }
+
   return (
     <div className="bg" >
 

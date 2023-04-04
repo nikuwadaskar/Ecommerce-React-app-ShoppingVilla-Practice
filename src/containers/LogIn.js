@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./LogIn.css";
 function LogIn() {
+  let isMounted = true;
+  const controller = new AbortController();
+  const signal = controller.signal;
   const [newUser, setNewUser] = useState({ name: "", email: "", password: "" });
   useEffect(() => {
     console.log(newUser);
   }, [newUser]);
-
+  useEffect(() => {
+    return () => {
+      isMounted = false;
+      controller?.abort();
+    };
+  }, []);
   function sendData() {
-    fetch("http://localhost:7000/user/create",{
-        method:"post",
-        headers:{
-            'content-type':"application/json"
-        },
-        body:JSON.stringify(newUser)
+    fetch("http://localhost:7000/user/create", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+      signal: signal,
     })
       .then(() => {
         alert("your user has been logged successfully");
@@ -27,12 +36,12 @@ function LogIn() {
       <h2 className="login-title">Log in</h2>
 
       <div className="login-form">
-        <div>
+        <div className="margins">
           <label for="name">Name </label>
           <input
             id="name"
             type="text"
-            placeholder="Eren Buruk"
+            placeholder="Apple cat"
             name="name"
             required
             onChange={(e) =>
@@ -43,7 +52,7 @@ function LogIn() {
           />
         </div>
 
-        <div>
+        <div className="margins" >
           <label for="email">Email </label>
           <input
             id="email"
@@ -59,7 +68,7 @@ function LogIn() {
           />
         </div>
 
-        <div>
+        <div className="margins" >
           <label for="password">Password </label>
           <input
             id="password"
@@ -75,7 +84,12 @@ function LogIn() {
           />
         </div>
 
-        <button onClick={()=>sendData()} className="btn btn--form" type="submit" value="Log in">
+        <button
+          onClick={() => sendData()}
+          className="btn btn--form"
+          type="submit"
+          value="Log in"
+        >
           Log in
         </button>
       </div>
