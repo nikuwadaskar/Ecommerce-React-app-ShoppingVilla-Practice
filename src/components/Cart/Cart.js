@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import meme from "../containers/shoppMEME.jpg";
+import meme from "../../components/shoppMEME.jpg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -8,7 +8,7 @@ import {
   countDown,
   countUp,
   removeFromCart,
-} from "../redux/actions/ProductActions";
+} from "../../redux/actions/ProductActions";
 import { Link } from "react-router-dom";
 
 export default function Cart() {

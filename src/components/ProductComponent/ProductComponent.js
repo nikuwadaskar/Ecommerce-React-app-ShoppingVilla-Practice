@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, countDown } from "../redux/actions/ProductActions";
+import { addToCart, countDown } from "../../redux/actions/ProductActions";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

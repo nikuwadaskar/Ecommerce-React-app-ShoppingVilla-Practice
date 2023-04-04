@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ReactComponent as CloseMenu } from "../assets/x.svg";
-import { ReactComponent as MenuIcon } from "../assets/menu.svg";
-import { ReactComponent as Logo } from "../assets/logo.svg";
+import { ReactComponent as CloseMenu } from "../../assets/x.svg";
+import { ReactComponent as MenuIcon } from "../../assets/menu.svg";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 import "./header.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
