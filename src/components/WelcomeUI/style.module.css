@@ -1,0 +1,85 @@
+.container {
+    background-image: url(../assets//welcome.webp);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+#hero {
+    width: 100%;
+    margin: 0 auto 72px;
+}
+
+#hero img {
+    margin-bottom: 72px;
+}
+
+.heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 49px;
+    line-height: 56px;
+    font-weight: normal;
+    margin-bottom: 32px;
+}
+
+.heading span {
+    font-weight: bold;
+}
+
+span,
+a {
+    color: #FF9900;
+}
+
+p,
+#footer {
+    color: #100331;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.footer a+a {
+    margin-left: 28px;
+}
+
+.line {
+    width: 30%;
+    height: 0;
+    margin: 0 auto 8px;
+    border: 1px solid #ECEFF2;
+}
+
+#balls {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 30px;
+    }
+
+    #hero {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 29px;
+        line-height: 30px;
+    }
+
+    .line {
+        width: 60%;
+    }
+}
