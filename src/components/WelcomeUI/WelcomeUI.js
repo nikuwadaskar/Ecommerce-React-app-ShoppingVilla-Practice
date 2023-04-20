@@ -4,7 +4,7 @@ function WelcomeUI() {
   return (
     <div className={`${Styles.container}`}>
       <div id="hero">
-        <p>
+        <p className={`${Styles.p}`} >
           From wardrobe staples to statement pieces, explore our collection and
           discover the perfect fit for your style
         </p>

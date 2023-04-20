@@ -44,8 +44,10 @@ a {
 p,
 #footer {
     color: #100331;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 28px;
+    color: red;
+    font-weight: 700;
 }
 
 .footer a+a {
