@@ -15,7 +15,7 @@ import WelcomeUI from "./components/WelcomeUI/WelcomeUI";
 
 // toaster and the routes paths
 function App() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   if (!auth) {
     return (
       <>
@@ -31,7 +31,7 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route exact path="/" element={<ProductListing />} />
-          <Route exact path="/cart" element={<Cart />} />
+          {/* <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/add-product" element={<AddItemToList />} />
           <Route
             exact
@@ -40,7 +40,7 @@ function App() {
           />
           <Route exact path="/aboute-project-and-me" element={<AboutPage />} />
           <Route exact path="/check-out" element={<CheckOutPage />} />
-          <Route>404 Not Found</Route>
+          <Route>404 Not Found</Route> */}
         </Routes>
       </Router>
     </div>

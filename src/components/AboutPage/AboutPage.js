@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Accordion, Icon } from "semantic-ui-react";
+// import { Accordion, Icon } from "semantic-ui-react";
 
 export default class AboutPage extends Component {
   state = { activeIndex: 0 };
@@ -17,7 +17,7 @@ export default class AboutPage extends Component {
 
     return (
       <div className="ui container" style={{ margin: "53px" }}>
-        <Accordion fluid styled>
+        {/* <Accordion fluid styled>
           <Accordion.Title
             active={activeIndex === 0}
             index={0}
@@ -118,7 +118,7 @@ export default class AboutPage extends Component {
               </a>
             </p>
           </Accordion.Content>
-        </Accordion>
+        </Accordion> */}
       </div>
     );
   }

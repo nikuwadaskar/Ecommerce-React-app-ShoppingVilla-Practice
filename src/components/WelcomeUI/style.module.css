@@ -1,5 +1,5 @@
 .container {
-    background-image: url(../assets//welcome.webp);
+    /* background-image: url(../assets//welcome.webp); */
     width: 100vw;
     height: 100vh;
     display: flex;
