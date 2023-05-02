@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { addProduct } from "../redux/actions/ProductActions";
+import { addProduct } from "../../redux/actions/ProductActions";
 
 function CreateProduct() {
   // using state to set the different properties of item

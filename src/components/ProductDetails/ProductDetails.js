@@ -8,7 +8,7 @@ import {
   fetchProduct,
   removeFromCart,
   removeSelectedProduct,
-} from "../redux/actions/ProductActions";
+} from "../../redux/actions/ProductActions";
 const ProductDetails = () => {
   //getting param from url
   const { productId } = useParams();

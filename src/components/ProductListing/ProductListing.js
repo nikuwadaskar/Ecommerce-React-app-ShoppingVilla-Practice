@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../redux/actions/ProductActions";
-import ProductComponent from "./ProductComponent";
+import { fetchProducts } from "../../redux/actions/ProductActions";
+import ProductComponent from "../ProductComponent/ProductComponent";
 
 const ProductPage = () => {
   // setting sort state to false initially
