@@ -10,7 +10,7 @@ import AboutPage from "./containers/AboutPage";
 import CheckOutPage from "./containers/CheckOutPage";
 import Navbarr from "./containers/Navbar";
 
-// toaster and the routes paths
+// toaster and the routes paths 
 function App() {
   return (
     <div className="bg" >
