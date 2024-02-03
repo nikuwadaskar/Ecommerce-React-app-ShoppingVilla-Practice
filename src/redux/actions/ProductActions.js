@@ -5,14 +5,35 @@ import { ActionTypes } from "../constants/action-type";
 
 export const fetchProducts = () => {
   return async (dispatch) => {
-    const response = await fakeStoreApi.get("/products");
-    dispatch({ type: ActionTypes.FETCH_PRODUCTS, payload: response.data });
+    try {
+      const response = await fakeStoreApi.get("/products");
+      console.log(response)
+      if (response.status!="200") {
+        throw new Error(`Error fetching products. Status: ${response.status}`);
+      }
+
+      dispatch({ type: ActionTypes.FETCH_PRODUCTS, payload: response.data });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      // Handle the error as needed (e.g., dispatch an error action)
+    }
   };
 };
+
 export const sortProducts = () => {
   return async (dispatch) => {
-    const response = await fakeStoreApi.get("/products?sort=desc");
-    dispatch({ type: ActionTypes.SORT_PRODUCTS, payload: response.data });
+    try {
+      const response = await fakeStoreApi.get("/products?sort=desc");
+
+      if (response.status!="200") {
+        throw new Error(`Error sorting products. Status: ${response.status}`);
+      }
+
+      dispatch({ type: ActionTypes.SORT_PRODUCTS, payload: response.data });
+    } catch (error) {
+      console.error("Error sorting products:", error);
+      // Handle the error as needed (e.g., dispatch an error action)
+    }
   };
 };
 export const fetchProduct = (id) => {
