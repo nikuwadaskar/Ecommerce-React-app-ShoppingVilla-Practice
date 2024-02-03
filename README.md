@@ -40,11 +40,11 @@ Give button to add a product to cart or remove from cart id already in cart
 
 # Screenshots
 
-![HomePage](/src/containers/one.png)
-![HomePage](/src/containers/two.png)
-![HomePage](/src/containers/three.png)
-![HomePage](/src/containers/four.png)
-![HomePage](/src/containers/five.png)
+![HomePage](/src/Components/one.png)
+![HomePage](/src/Components/two.png)
+![HomePage](/src/Components/three.png)
+![HomePage](/src/Components/four.png)
+![HomePage](/src/Components/five.png)
 
 # Getting Started with Create React App
 

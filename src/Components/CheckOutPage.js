@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import meme from "../containers/ThankYou.jpg";
+import meme from "../Components/ThankYou.jpg";
 
 export default function CheckOutPage() {
   const [submitt, setSubmitt] = useState(false);

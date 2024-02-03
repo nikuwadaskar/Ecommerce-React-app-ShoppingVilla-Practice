@@ -1,37 +1,50 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import ProductDetails from "./containers/ProductDetails";
-import ProductListing from "./containers/ProductListing";
+import ProductDetails from "./Components/ProductDetails";
+import ProductListing from "./Components/ProductListing";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cart from "./containers/Cart";
-import AddItemToList from "./containers/AddItemToList";
-import AboutPage from "./containers/AboutPage";
-import CheckOutPage from "./containers/CheckOutPage";
-import Navbarr from "./containers/Navbar";
+import Cart from "./Components/Cart";
+import AddItemToList from "./Components/AddItemToList";
+import AboutPage from "./Components/AboutPage";
+import CheckOutPage from "./Components/CheckOutPage";
+import Navbarr from "./Components/Navbar";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-// toaster and the routes paths 
 function App() {
+  const [url, setUrl] = useState("");
+  const state = useSelector((state) => state);
+
+  useEffect(() => {
+    if (window.location.pathname) {
+      setUrl(window.location.pathname);
+    }
+  }, []);
+
   return (
-    <div className="bg" >
-
-   
-    <Router>
-    <Navbarr/>
-      <ToastContainer />
-      <Routes>
-        <Route exact path="/" element={<ProductListing />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/add-product" element={<AddItemToList />} />
-        <Route exact path="/product/:productId" element={<ProductDetails />} />
-        <Route exact path="/aboute-project-and-me" element={<AboutPage />} />
-        <Route exact path="/check-out" element={<CheckOutPage />} />
-
-        <Route>404 Not Found</Route>
-      </Routes>
-    </Router>
+    <div className="bg">
+      <Router>
+        <Navbarr />
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<ProductListing />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/add-product" element={<AddItemToList />} />
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/about-project-and-me" element={<AboutPage />} />
+          {state?.handleCart?.length > 0 && (
+            <Route path="/check-out" element={<CheckOutPage />} />
+          )}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
+
+const NotFound = () => {
+  return <h2>404 Not Found</h2>;
+};
 
 export default App;
