@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/actions/ProductActions";
 import ProductComponent from "./ProductComponent";
 
 const ProductPage = () => {
   // setting sort state to false initially
-  const [sorted, setSorted] = useState(false);
+  const [sorted, setSorted] = useState();
 
   // getting products from redux state
   const products = useSelector((state) => state.allProducts.products);
   const dispatch = useDispatch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function unSort() {
     // sending request to get unsorted products
     dispatch(fetchProducts());
@@ -24,14 +25,22 @@ const ProductPage = () => {
     setSorted(true);
   }
   useEffect(() => {
-    unSort();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    console.log(sorted)
+    if(sorted){
+      Sort()
+    }else{
+      unSort()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sorted]);
+
 
   // rendering the products
   return (
     <div className="ui grid container">
-      <div className="container button">
+      {Object.keys(products).length === 0 ? (
+        <></>
+      ) : (<div className="container button">
         {/* checking sort condition to show relevant button  */}
         {!sorted ? (
           <button onClick={() => Sort()} className="ui button">
@@ -42,13 +51,13 @@ const ProductPage = () => {
             Sort Random
           </button>
         )}
-      </div>
+      </div>)}
 
       {/* checking condition to show loader */}
       {Object.keys(products).length === 0 ? (
-        <div className="ui active centered inline loader"></div>
+        <div className="loader"><div className="ui active centered inline loader"></div></div>
       ) : (
-        <div className="ui grid container" style={{justifyContent:'space-around'}}>
+        <div className="ui grid container" style={{ justifyContent: 'space-around' }}>
           <ProductComponent />
         </div>
       )}
@@ -56,4 +65,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default memo(ProductPage);
